@@ -1,0 +1,7 @@
+{
+  "name": "cruz",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

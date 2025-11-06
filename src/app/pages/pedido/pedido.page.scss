@@ -1,0 +1,182 @@
+/* --- Configuración Global --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f2f5; /* Fondo gris claro fuera del app */
+    color: #1a1a1a;
+    font-size: 16px;
+}
+
+/* Clase para el body que asegura que haya espacio en la parte 
+  inferior para el botón fijo.
+*/
+body.app-layout {
+    padding-bottom: 120px; 
+}
+
+/* --- Contenedor Principal (Simula el móvil) --- */
+.app-container {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* --- 1. Cabecera Superior (Sticky) --- */
+.app-header {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    position: sticky; /* Fija la cabecera al hacer scroll */
+    top: 0;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.app-header h1 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    grid-column: 2;
+}
+
+.header-icon {
+    grid-column: 1;
+}
+
+/* Estilo para el botón de flecha (←) */
+.back-button {
+    grid-column: 1;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 1.75rem; /* Hace la flecha más grande */
+    font-weight: 600;
+    line-height: 1;
+    text-align: left;
+    padding-bottom: 4px; /* Ajuste visual */
+}
+
+/* --- 2. Área de Contenido Principal --- */
+.content-area {
+    padding: 1.5rem;
+    /* El padding-bottom en el <body> evita que el
+      contenido quede oculto por el botón fijo.
+    */
+}
+
+.content-area h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.content-area h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+/* Placeholder gris (simula barra de búsqueda) */
+.search-placeholder {
+    width: 100%;
+    height: 48px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+/* --- Lista de Productos --- */
+.product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Espacio entre cada item de la lista */
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between; /* Texto a la izq, imagen a la der */
+    align-items: center;
+    gap: 1rem; /* Espacio entre texto e imagen */
+}
+
+.product-details {
+    flex: 1; /* Ocupa el espacio restante */
+}
+
+.product-details h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.product-details p {
+    font-size: 0.875rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.product-image {
+    flex-shrink: 0; /* Evita que la imagen se encoja */
+    width: 90px;
+    height: 90px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen llene el espacio */
+}
+
+/* --- 3. Barra de Botón Inferior (Fija) --- */
+.footer-button-bar {
+    position: fixed; /* Fija al fondo de la pantalla */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-top: 1px solid #f0f0f0;
+    z-index: 10;
+}
+
+/* Contenedor interno para centrar el botón */
+.footer-button-content {
+    max-width: 420px; /* Debe coincidir con el .app-container */
+    margin: 0 auto;
+}
+
+/* --- Estilos de Botón --- */
+.btn {
+    display: block; /* Asegura que el enlace <a> ocupe todo el ancho */
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* Quita subrayado si es <a> */
+    transition: background-color 0.3s ease;
+}
+
+.btn-green {
+    background-color: #2fde80; /* Color verde de tu primer login */
+    color: white;
+}
+
+.btn-green:hover {
+    background-color: #29c470;
+}

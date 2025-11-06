@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: false,
+  apiUrl: 'http://localhost:1337/api', // URL de Strapi local
 };

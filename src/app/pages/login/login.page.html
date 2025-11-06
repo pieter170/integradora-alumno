@@ -1,33 +1,69 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<body>
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Login</ion-title>
+  </ion-toolbar>
+</ion-header> -->
 
-    <div class="login-container">
-        <h2>Bienvenido de nuevo</h2>
-        
-        <form action="#" method="POST">
-            <div class="form-group">
-                <label for="username">Nombre de usuario</label>
-                <input type="text" id="username" name="username" placeholder="Ingrese su nombre de usuario">
-            </div>
-            
-            <div class="form-group">
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" placeholder="Ingrese su contraseña">
-            </div>
-            
-            <button type="submit" class="login-button">Iniciar sesión</button>
-        </form>
-    </div>
+<ion-content [fullscreen]="true" class="login-background">
 
-</body>
-</html>
+  <div class="login-container">
+    <ion-card class="login-card">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Bienvenido de nuevo</ion-card-title>
+        <ion-card-subtitle class="ion-text-center">Inicia sesión para continuar</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+
+        <!-- Campo de usuario -->
+        <ion-item lines="none">
+          <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+          <ion-input
+            [(ngModel)]="identifier"
+            type="text"
+            placeholder="Nombre de usuario o correo">
+          </ion-input>
+        </ion-item>
+
+        <!-- Campo de contraseña -->
+        <ion-item lines="none">
+          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+          <ion-input
+            [(ngModel)]="password"
+            type="password"
+            placeholder="Contraseña">
+          </ion-input>
+        </ion-item>
+
+        <!-- Enlace de recuperación -->
+        <div class="ion-text-end" style="margin-top: 8px; font-size: 0.85rem; color: #000000;">
+          <a href="reset-password" style="text-decoration: none; color: #3880ff;">¿Olvidó su contraseña?</a>
+        </div>
+
+        <!-- Botón de login -->
+        <ion-button
+          expand="block"
+          shape="round"
+          color="primary"
+          (click)="login()">
+          Iniciar sesión
+        </ion-button>
+
+        <!-- Separador -->
+        <div class="ion-text-center" style="margin: 10px 0; color: #000000;"></div>
+
+        <!-- Botón de Google -->
+        <ion-button
+          expand="block"
+          fill="outline"
+          shape="round"
+          href="http://localhost:1337/api/connect/google">
+          <ion-icon name="logo-google" slot="start"></ion-icon>
+          Iniciar con Google
+        </ion-button>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { authGuard } from './guard/auth-guard';
 
 const routes: Routes = [
   {
@@ -11,17 +12,28 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  {
+      {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
   {
+    path: 'frogot',
+    loadChildren: () => import('./pages/login/forgot/forgot.module').then( m => m.ForgotPageModule)
+  },
+  {
+    path: 'reset-password',
+    loadChildren: () => import('./pages/login/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
+    
+  },
+  {
     path: 'menu',
-    loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
+    loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule),
+    canActivate: [authGuard]
   },
   {
     path: 'pedido',
-    loadChildren: () => import('./pages/pedido/pedido.module').then( m => m.PedidoPageModule)
+    loadChildren: () => import('./pages/pedido/pedido.module').then( m => m.PedidoPageModule),
+    canActivate: [authGuard]
   },
 ];
 

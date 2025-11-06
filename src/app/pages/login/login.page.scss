@@ -1,77 +1,83 @@
-/* --- Reseteo básico y estilos globales --- */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* Fondo general */
+.login-background {
+  --background: linear-gradient(135deg, #ffffff 0%, #e8f5e9 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
 }
 
-body {
-    font-family: 'Inter', sans-serif; /* Usa la fuente Inter, o una sans-serif por defecto */
-    background-color: #fff; /* Fondo blanco */
-    color: #333; /* Color de texto principal */
-    display: grid; /* Usamos Grid para centrar fácilmente */
-    place-items: center; /* Centra el contenido vertical y horizontalmente */
-    min-height: 100vh; /* Ocupa al menos toda la altura de la pantalla */
-}
-
-/* --- Contenedor del formulario --- */
+/* Contenedor central */
 .login-container {
-    width: 100%;
-    max-width: 400px; /* Ancho máximo del formulario */
-    padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
 }
 
-.login-container h2 {
-    text-align: center;
-    font-size: 1.75rem; /* Tamaño del título */
-    font-weight: 700; /* Negrita */
-    margin-bottom: 2.5rem; /* Espacio debajo del título */
-    color: #222;
+/* Tarjeta principal */
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(228, 224, 224, 0.1);
+  background: #ffffff;
+  padding: 15px;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
-/* --- Grupos de formulario (label + input) --- */
-.form-group {
-    margin-bottom: 1.5rem; /* Espacio entre los campos */
-    text-align: left; /* Alinea el texto a la izquierda dentro del grupo */
+/* Encabezado */
+ion-card-title {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #212121;
 }
 
-.form-group label {
-    display: block; /* La etiqueta ocupa su propia línea */
-    font-size: 0.875rem; /* Tamaño de la etiqueta */
-    font-weight: 500; /* Semi-negrita */
-    margin-bottom: 0.5rem; /* Espacio entre la etiqueta y el input */
-    color: #444;
+ion-card-subtitle {
+  font-size: 0.9rem;
+  color: #757575;
 }
 
-/* --- Campos de entrada --- */
-.form-group input {
-    width: 100%; /* Ocupa todo el ancho disponible */
-    padding: 0.875rem 1rem; /* Relleno interno */
-    border: 1px solid #ddd; /* Borde sutil */
-    border-radius: 8px; /* Esquinas redondeadas */
-    font-size: 1rem; /* Tamaño del texto del input */
-    font-family: 'Inter', sans-serif; /* Asegura que la fuente sea la misma */
+/* Inputs */
+ion-item {
+  --background: #dfd6d6;
+  --border-radius: 12px;
+  margin-top: 15px;
+  padding: 0 10px;
 }
 
-/* Estilo para el texto de placeholder */
-.form-group input::placeholder {
-    color: #bbb;
+ion-icon {
+  color: #3880ff;
 }
 
-/* --- Botón de Iniciar Sesión --- */
-.login-button {
-    width: 100%;
-    padding: 0.875rem 1rem;
-    border: none; /* Sin borde */
-    border-radius: 8px; /* Esquinas redondeadas */
-    background-color: #2fde80; /* Color verde brillante de la imagen */
-    color: white; /* Texto blanco */
-    font-size: 1rem;
-    font-weight: 700; /* Negrita */
-    cursor: pointer; /* Cambia el cursor a una mano */
-    transition: background-color 0.3s ease; /* Transición suave para el hover */
+/* Botones */
+ion-button {
+  margin-top: 20px;
+  font-weight: 600;
 }
 
-.login-button:hover {
-    background-color: #29c470; /* Un verde un poco más oscuro al pasar el ratón */
+ion-button[color="primary"] {
+  --background: #34d399; /* Verde estilo “login” */
+  --background-activated: #2ecc71;
+  --background-hover: #2ecc71;
+  --border-radius: 12px;
+}
+
+ion-button[fill="outline"] {
+  --border-color: #34d399;
+  color: #34d399;
+  --border-radius: 12px;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

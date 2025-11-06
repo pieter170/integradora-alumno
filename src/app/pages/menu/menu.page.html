@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cafeteria Escolar</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
     
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
+    <ion-buttons slot="end">
+        <ion-button (click)="logout()">
+            <ion-icon name="log-in-outline"></ion-icon>
+        </ion-button>
+    </ion-buttons>
 
     <div class="app-container">
 
@@ -19,14 +28,15 @@
                 <img src="https://via.placeholder.com/24x24/000000/FFFFFF?text=←" alt="Volver">
             </div>
             <h1>Cafeteria Escolar</h1>
-            <div class="header-icon"></div> </header>
+            <div class="header-icon"></div>
+        </header>
 
         <main class="content-area">
 
             <section class="combo-section">
                 <h2>Combos</h2>
                 <div class="horizontal-scroll">
-                    
+
                     <div class="card combo-card">
                         <div class="card-image-container ratio-16-9">
                             <img src="https-via-placeholder-com/300x169" alt="Combo Desayuno">
@@ -48,7 +58,7 @@
 
             <section class="product-section">
                 <h2>Productos</h2>
-                
+
                 <nav class="category-tabs">
                     <a href="#" class="active">Bebidas</a>
                     <a href="#">Comida</a>
@@ -56,7 +66,7 @@
                 </nav>
 
                 <div class="product-grid">
-                    
+
                     <div class="card product-card">
                         <div class="card-image-container ratio-4-5">
                             <img src="https-via-placeholder-com/150x188" alt="Jugo de Naranja">
@@ -101,4 +111,5 @@
     </div>
 
 </body>
+
 </html>

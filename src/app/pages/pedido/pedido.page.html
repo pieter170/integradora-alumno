@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tu Pedido</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div *ngIf="itemsCarrito.length === 0" style="text-align: center; margin-top: 50px;">
+    <ion-icon name="cart-outline" style="font-size: 60px; color: #ccc;"></ion-icon>
+    <p>No has agregado nada aún.</p>
+    <ion-button routerLink="/menu" fill="outline">Ir al Menú</ion-button>
+  </div>
+
+  <ion-list *ngIf="itemsCarrito.length > 0">
+    <ion-item *ngFor="let item of itemsCarrito">
+      
+      <ion-label>
+        <h2>{{ item.nombre }}</h2>
+        <p>${{ item.precio }} c/u</p>
+      </ion-label>
+
+      <div slot="end" style="display: flex; align-items: center; gap: 10px;">
+        <ion-button size="small" fill="outline" color="danger" (click)="restar(item)">
+          -
+        </ion-button>
+        
+        <span style="font-weight: bold; font-size: 1.1rem;">{{ item.cantidad }}</span>
+        
+        <ion-button size="small" fill="solid" color="success" (click)="sumar(item)">
+          +
+        </ion-button>
+      </div>
+
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer *ngIf="itemsCarrito.length > 0">
+  <ion-toolbar>
+    <div style="display: flex; justify-content: space-between; padding: 0 20px; align-items: center;">
+      <h3>Total:</h3>
+      <h2 style="color: #2dd36f; font-weight: bold;">${{ total }}</h2>
+    </div>
+    <ion-button expand="block" color="primary" class="ion-margin" (click)="confirmarPedido()">
+      Confirmar y Pedir
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

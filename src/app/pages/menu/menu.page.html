@@ -1,0 +1,107 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary"> 
+    <ion-buttons slot="start">
+      </ion-buttons>
+    
+    <ion-title>Cafetería Escolar</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding-bottom">
+  
+  <main class="content-area">
+
+    <div class="category-scroll" style="overflow-x: auto; white-space: nowrap; padding: 10px 0;">
+      <ion-chip [color]="categoriaSeleccionada === 'todos' ? 'primary' : 'medium'" 
+                [outline]="categoriaSeleccionada !== 'todos'"
+                (click)="filtrarPor('todos')">
+        <ion-label>Todos</ion-label>
+      </ion-chip>
+
+      <ion-chip [color]="categoriaSeleccionada === 'bebidas' ? 'primary' : 'medium'" 
+                [outline]="categoriaSeleccionada !== 'bebidas'"
+                (click)="filtrarPor('bebidas')">
+        <ion-label>Bebidas</ion-label>
+      </ion-chip>
+
+      <ion-chip [color]="categoriaSeleccionada === 'comida' ? 'primary' : 'medium'" 
+                [outline]="categoriaSeleccionada !== 'comida'"
+                (click)="filtrarPor('comida')">
+        <ion-label>Comida</ion-label>
+      </ion-chip>
+
+      <ion-chip [color]="categoriaSeleccionada === 'snacks' ? 'primary' : 'medium'" 
+                [outline]="categoriaSeleccionada !== 'snacks'"
+                (click)="filtrarPor('snacks')">
+        <ion-label>Snacks</ion-label>
+      </ion-chip>
+    </div>
+
+    <section class="product-section">
+      <h2 style="margin-left: 10px; margin-bottom: 5px; font-size: 1.2rem;">Productos</h2>
+
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          
+          <ion-col size="6" size-md="4" size-lg="3" *ngFor="let p of productosVisibles">
+            <div class="product-card" style="background: white; border-radius: 15px; margin: 5px; padding: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+              
+              <div class="card-image-container" style="height: 120px; width: 100%; border-radius: 10px; overflow: hidden; margin-bottom: 8px; background-color: #f4f4f4;">
+                <img [src]="getImagenUrl(p) || 'assets/plato-default.png'" 
+                     alt="{{ p.nombre }}"
+                     style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              
+              <div class="card-info">
+                <h3 style="margin: 0; font-size: 1rem; font-weight: bold; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                  {{ p?.nombre }}
+                </h3>
+                
+                <div class="price-row" style="display: flex; justify-content: space-between; align-items: center; margin-top: 5px;">
+                  <span class="price" style="font-weight: bold; color: var(--ion-color-primary); font-size: 1.1rem;">
+                    ${{ p?.precio }}
+                  </span>
+                  
+                  <ion-button size="small" shape="round" (click)="agregarAlCarrito(p)">
+                    <ion-icon name="add" slot="icon-only"></ion-icon>
+                  </ion-button>
+                </div>
+              </div>
+
+            </div>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+
+      <div *ngIf="productosVisibles.length === 0" class="ion-text-center ion-padding">
+        <p>No hay productos en esta categoría.</p>
+      </div>
+
+    </section>
+
+  </main>
+</ion-content>
+
+<ion-footer>
+  <nav class="bottom-nav">
+    <a routerLink="/menu" class="nav-item active">
+      <ion-icon name="fast-food-outline"></ion-icon>
+      <span>Menú</span>
+    </a>
+    <a routerLink="/pedido" class="nav-item">
+      <ion-icon name="cart-outline"></ion-icon>
+      <span>Pedidos</span>
+    </a>
+    <a routerLink="/perfil" class="nav-item">
+      <ion-icon name="person-outline"></ion-icon>
+      <span>Perfil</span>
+    </a>
+  </nav>
+</ion-footer>

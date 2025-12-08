@@ -1,0 +1,197 @@
+// Estilos generales
+.app-container {
+  padding: 20px;
+  background-color: #f8f9fa;
+  min-height: 100%;
+  padding-bottom: 80px; // Espacio para el nav
+}
+
+// HEADER
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+
+  h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+  }
+  
+  .header-icon {
+    width: 40px; 
+    display: flex;
+    align-items: center;
+  }
+}
+
+// PERFIL HEADER (Avatar y Nombre)
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+    background-color: #e0e0e0; // Gris suave
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 3px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+    span {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #666;
+    }
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 5px;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #888;
+    margin: 0;
+  }
+}
+
+// MENÚ DE LISTA
+.profile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:active {
+      background: #f0f0f0;
+    }
+
+    ion-icon {
+      color: #ccc;
+      font-size: 1.2rem;
+    }
+
+    // Estilo especial para el botón Logout
+    &.logout {
+      margin-top: 20px;
+      color: #eb445a; // Rojo Ionic
+      
+      ion-icon {
+        color: #eb445a;
+      }
+    }
+  }
+}
+
+// VISTA DE EDICIÓN (Formulario)
+.edit-form {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+  .form-group {
+    margin-bottom: 15px;
+    
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .styled-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      background: #fdfdfd;
+      
+      &:focus {
+        border-color: #2dd36f;
+        outline: none;
+      }
+    }
+  }
+
+  .button-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+
+    button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-cancel {
+      background: #f4f5f8;
+      color: #666;
+    }
+
+    .btn-save {
+      background: #2dd36f;
+      color: white;
+    }
+  }
+}
+
+// BOTTOM NAV (Barra inferior)
+.bottom-nav {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+  border-top: 1px solid #eee;
+  z-index: 1000;
+
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #999;
+    text-decoration: none;
+    font-size: 0.75rem;
+
+    ion-icon {
+      font-size: 1.5rem;
+      margin-bottom: 3px;
+    }
+
+    &.active {
+      color: #2dd36f; // Verde activo
+    }
+  }
+  
+}

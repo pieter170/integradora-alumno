@@ -1,0 +1,50 @@
+// Estilos generales
+.app-container {
+  padding: 10px; // Reduje un poco el padding si gustas
+  background-color: #f8f9fa;
+  min-height: 100%;
+  // padding-bottom: 80px;  <-- ELIMINADO: Ya no es necesario con ion-footer
+}
+
+
+
+// ... (Resto de estilos de chips y grid se quedan igual) ...
+
+// BOTTOM NAV (Barra inferior dentro del footer)
+ion-footer {
+  box-shadow: none;
+  border: none;
+  background: white; // Asegura fondo blanco
+}
+
+.bottom-nav {
+  // ELIMINADO: position: fixed, bottom: 0, z-index, etc.
+  
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+  border-top: 1px solid #eee;
+  background: white;
+  
+  // Importante para iPhones sin botón físico (Safe Area)
+  padding-bottom: env(safe-area-inset-bottom);
+
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #999;
+    text-decoration: none;
+    font-size: 0.75rem;
+
+    ion-icon {
+      font-size: 1.5rem;
+      margin-bottom: 3px;
+    }
+
+    &.active {
+      color: var(--ion-color-primary, #3880ff); // Usa el color primario de ionic o tu código hexa
+      font-weight: bold;
+    }
+  }
+}

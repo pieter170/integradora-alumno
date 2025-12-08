@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Historial de Pedidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div *ngIf="cargando" class="ion-text-center ion-padding-top">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Cargando historial...</p>
+  </div>
+
+  <div *ngIf="!cargando && historial.length === 0" class="ion-text-center ion-padding-top">
+    <ion-icon name="archive-outline" style="font-size: 80px; color: #ccc;"></ion-icon>
+    <h2>No has realizado ningún pedido.</h2>
+    <p>¡Visita la tienda y haz tu primera compra!</p>
+  </div>
+
+  <ion-list *ngIf="!cargando && historial.length > 0">
+    
+    <ion-card *ngFor="let pedido of historial">
+      <ion-card-header>
+        <ion-card-subtitle>
+            Pedido #{{ pedido.id }} - {{ pedido.fecha | date:'medium' }}
+        </ion-card-subtitle>
+        <ion-card-title>
+          Total Pagado: 
+          <span style="float: right; color: green;">${{ pedido.total | number:'1.2-2' }}</span>
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>Productos incluidos:</p>
+        <ion-list lines="none">
+          <ion-item *ngFor="let item of pedido.productos">
+            <ion-badge slot="start" color="medium">{{ item.cantidad }}</ion-badge>
+            <ion-label>
+              <h3>{{ item.nombre }}</h3> 
+              <p>Precio unitario: ${{ item.precio | number:'1.2-2' }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+      
+    </ion-card>
+  </ion-list>
+
+</ion-content>

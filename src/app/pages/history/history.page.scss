@@ -1,0 +1,84 @@
+.history-container {
+  padding: 15px;
+  background-color: #f8f9fa;
+  min-height: 100%;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  color: #999;
+
+  ion-icon {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    color: #ccc;
+  }
+}
+
+.order-card {
+  margin: 0 0 15px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  background: white;
+
+  .order-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .icon-box {
+    width: 45px;
+    height: 45px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ion-icon {
+      font-size: 1.5rem;
+      color: var(--ion-color-primary);
+    }
+  }
+
+  .order-info {
+    flex: 1;
+
+    h2 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .category {
+      margin: 2px 0 0 0;
+      font-size: 0.85rem;
+      color: #888;
+      text-transform: capitalize;
+    }
+  }
+
+  .order-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2dd36f; // Verde dinero
+  }
+
+  .order-footer {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f4f4f4;
+    text-align: right;
+    
+    small {
+      color: #aaa;
+      font-size: 0.8rem;
+    }
+  }
+}
